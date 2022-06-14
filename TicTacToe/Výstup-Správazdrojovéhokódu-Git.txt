@@ -1,0 +1,10 @@
+﻿V C:\My programing\Visual Studio\TicTacToe\TicTacToe se pro vás vytvořilo nové úložiště Git. Pokud si chcete zobrazit jeho obsah, otevřete okno úložiště Git.
+Otevírání úložišť:
+C:\My programing\Visual Studio\TicTacToe\TicTacToe
+Otevírání úložišť:
+C:\My programing\Visual Studio\TicTacToe\TicTacToe
+Potvrzení změn 2f93f879 je vytvořené místně v úložišti C:\My programing\Visual Studio\TicTacToe\TicTacToe.
+Otevírání úložišť:
+C:\My programing\Visual Studio\TicTacToe\TicTacToe
+Otevírání úložišť:
+C:\My programing\Visual Studio\TicTacToe\TicTacToe

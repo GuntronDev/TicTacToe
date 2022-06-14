@@ -17,6 +17,11 @@ namespace TicTacToe
             InitializeComponent();
         }
 
-        
+        private void buttonPlay_Click(object sender, EventArgs e)
+        {
+            Form2 formPlay = new Form2();
+            formPlay.ShowDialog();
+            
+        }
     }
 }
