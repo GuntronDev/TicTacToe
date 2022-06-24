@@ -50,7 +50,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(407, 84);
+            this.textBox1.Size = new System.Drawing.Size(390, 84);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = " Tic-Tac-Toe";
             // 
@@ -63,6 +63,7 @@
             this.buttonPlay.TabIndex = 2;
             this.buttonPlay.Text = "PLAY";
             this.buttonPlay.UseVisualStyleBackColor = true;
+            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
             // pictureBoxMainScreenTicTacToe
             // 
@@ -78,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 450);
+            this.ClientSize = new System.Drawing.Size(404, 451);
             this.Controls.Add(this.pictureBoxMainScreenTicTacToe);
             this.Controls.Add(this.buttonPlay);
             this.Controls.Add(this.textBox1);
