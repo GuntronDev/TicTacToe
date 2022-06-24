@@ -16,18 +16,18 @@ namespace TicTacToe
         {
             InitializeComponent();
             SetButtons();
-            
+
         }
         static Board boardPlaySpace = new Board(3);
         public Button[,] btnGrid = new Button[boardPlaySpace.boardSize, boardPlaySpace.boardSize];
 
         public void SetButtons()
         {
-         int buttonSize = panelTicTacToe.Height / boardPlaySpace.boardSize;
+            int buttonSize = panelTicTacToe.Height / boardPlaySpace.boardSize;
 
-            for(int i = 0; i < boardPlaySpace.boardSize; i++)
+            for (int i = 0; i < boardPlaySpace.boardSize; i++)
             {
-                for(int j = 0; j < boardPlaySpace.boardSize; j++)
+                for (int j = 0; j < boardPlaySpace.boardSize; j++)
                 {
                     btnGrid[i, j] = new Button();
 
@@ -36,13 +36,26 @@ namespace TicTacToe
 
                     panelTicTacToe.Controls.Add(btnGrid[i, j]);
 
-                    btnGrid[i, j].Location = new Point(i *buttonSize, j *buttonSize);   
+                    btnGrid[i, j].Location = new Point(i * buttonSize, j * buttonSize);
+
+                    btnGrid[i, j].Text = (j + "/" + i);
 
 
                 }
 
 
             }
+
+        }
+        private void button_Click(object sender,EventArgs e)
+        {
+
+        }
+
+
+
+        public void FindOffSet()
+        {
 
         }
 
