@@ -10,6 +10,9 @@ namespace TicTacToe
     {
         public int column { get; set; }
         public int row { get; set; }
+        public bool isOccupied { get; set; } = false;   
+     
+
         public Cell(int column, int row)
         {
             this.column = column;

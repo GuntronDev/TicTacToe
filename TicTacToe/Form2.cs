@@ -20,10 +20,12 @@ namespace TicTacToe
         }
         static Board boardPlaySpace = new Board(3);
         public Button[,] btnGrid = new Button[boardPlaySpace.boardSize, boardPlaySpace.boardSize];
-
+       
         public void SetButtons()
-        {
+        {            
             int buttonSize = panelTicTacToe.Height / boardPlaySpace.boardSize;
+
+            //create button board
 
             for (int i = 0; i < boardPlaySpace.boardSize; i++)
             {
@@ -38,26 +40,49 @@ namespace TicTacToe
 
                     btnGrid[i, j].Location = new Point(i * buttonSize, j * buttonSize);
 
-                    btnGrid[i, j].Text = (j + "/" + i);
+                    btnGrid[i, j].Text = (i + "/" + j);
 
+                    btnGrid[i, j].Click += buttonCell_Click;
+                    btnGrid[i, j].Tag = new Point(i, j);
+                    
 
+                    
                 }
 
 
             }
 
         }
-        private void button_Click(object sender,EventArgs e)
+        public void buttonCell_Click(object sender, EventArgs e)
         {
+            Button CommonButton = (Button)sender;
+            
+            //set the same button reference to cell reference
+            Point Location = (Point)CommonButton.Tag;
 
+            int x = Location.X;
+            int y = Location.Y;
+
+            Cell CurrentCell = boardPlaySpace.Cellsgrid[x, y];
+
+            boardPlaySpace.CheckOffSet(CurrentCell);
+
+           
+            for(int i = 0; i < boardPlaySpace.boardSize; i++)
+            {
+                for(int j = 0; j < boardPlaySpace.boardSize; j++)
+                {
+                    if (boardPlaySpace.Cellsgrid[j,i].isOccupied == true)
+                    {
+                        
+                    }
+
+
+                }
+            }
+  
         }
 
-
-
-        public void FindOffSet()
-        {
-
-        }
 
     }
 }

@@ -19,6 +19,7 @@ namespace TicTacToe
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
+            //when pressed play btn show the second form
             Form2 formPlay = new Form2();
             formPlay.ShowDialog();
             
