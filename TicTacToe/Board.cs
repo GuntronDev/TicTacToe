@@ -10,8 +10,10 @@ namespace TicTacToe
     {
         public int boardSize { get; set; }
         public Cell [,] Cellsgrid { get; set; }
-               
-       public Board (int BoardSize)
+        public bool VictoryX { get; set; } = false;
+        public bool VictoryO { get; set; } = false;
+
+        public Board (int BoardSize)
         {
             boardSize = BoardSize;
 
@@ -22,64 +24,229 @@ namespace TicTacToe
             {
                 for(int j = 0; j < boardSize; j++)
                 {
-                    Cellsgrid[j,i] = new Cell (j,i);
-                    
-
+                    Cellsgrid[j,i] = new Cell (j,i);                   
                 }
             }
         }
-
+        //checking all offsets to see if anyone won
         public void CheckOffSet(Cell OccupiedCell)
-        {
-            OccupiedCell.isOccupied = true;
-
+        {  
             //check north          
-           for (int i = OccupiedCell.row; i >= 0; i--)
-           {
-             
-           }
+            for (int i = OccupiedCell.row, OccupiedInRow = 0; i >= 0; i--)
+            {              
+                    if (Cellsgrid[OccupiedCell.column,i].isOccupied == true)
+                    {
+                        if (Cellsgrid[OccupiedCell.column, i].occupiedByX == true)
+                        {
+                            OccupiedInRow += 1;
+                        }
+                        else if (Cellsgrid[OccupiedCell.column, i].occupiedByO == true)
+                        {
+                            OccupiedInRow += 10;
+                        }
+                    }
 
-            //check south
-           for (int i = OccupiedCell.row ; i < boardSize; i++)
-           {
-              
-           } 
-
-           // check west            
-           for (int i = OccupiedCell.column; i >= 0; i--)
-           {
-               
-           }
-
-           // check east
-           for (int i = OccupiedCell.column; i < boardSize; i++)
-           {
-               
-           }
-
-           //check north-east
-           for (int i = OccupiedCell.column, j = OccupiedCell.row ; i < boardSize && j >= 0; i++, j--)
-           {
-                                  
-           }
-           
-            //check north-west
-            for (int i = OccupiedCell.column, j = OccupiedCell.row; i >= 0 && j >= 0; i--, j--)
-            {
-              
+                    if (OccupiedInRow == 3)
+                    {
+                        VictoryX = true;
+                        return; 
+                    }
+                    if (OccupiedInRow == 30)
+                    {
+                        VictoryO = true;
+                        return;
+                    }
             }
+            
+            //check south
+            for (int i = OccupiedCell.row, OccupiedInRow = 0; i < boardSize; i++)
+           {
+                if (OccupiedCell.isOccupied == true)
+                {
+                    if (Cellsgrid[OccupiedCell.column, i].occupiedByX == true)
+                    {
+                        OccupiedInRow += 1;
+                    }
+                    if (Cellsgrid[OccupiedCell.column, i].occupiedByO == true)
+                    {
+                        OccupiedInRow += 10;
+                    }
+                }
+
+                if (OccupiedInRow == 3)
+                {
+                    VictoryX = true;
+                    return ;
+                }
+                if (OccupiedInRow == 30)
+                {
+                    VictoryO = true;
+                    return;
+                }
+            }
+             
+            // check west            
+            for (int i = OccupiedCell.column, OccupiedInRow = 0; i >= 0; i--)
+            {
+                 if (OccupiedCell.isOccupied == true)
+                 {
+                     if (Cellsgrid[i, OccupiedCell.row].occupiedByX == true)
+                     {
+                         OccupiedInRow += 1;
+                     }
+                     if (Cellsgrid[i, OccupiedCell.row].occupiedByO == true)
+                     {
+                         OccupiedInRow += 10;
+                     }
+                 }
+
+                 if (OccupiedInRow == 3)
+                 {
+                     VictoryX = true;
+                     return;
+                 }
+                 if (OccupiedInRow == 30)
+                 {
+                     VictoryO = true;
+                     return;
+                 }
+             }
+            
+            // check east
+            for (int i = OccupiedCell.column, OccupiedInRow = 0; i < boardSize; i++)
+            {
+                 if (OccupiedCell.isOccupied == true)
+                 {
+                     if (Cellsgrid[i, OccupiedCell.row].occupiedByX == true)
+                     {
+                         OccupiedInRow += 1;
+                     }
+                     if (Cellsgrid[i, OccupiedCell.row].occupiedByO == true)
+                     {
+                         OccupiedInRow += 10;
+                     }
+                 }
+
+                 if (OccupiedInRow == 3)
+                 {
+                     VictoryX = true;
+                     return;
+                 }
+                 if (OccupiedInRow == 30)
+                 {
+                     VictoryO = true;
+                     return;
+                 }
+             }
+            
+            //check north-east
+            for (int i = OccupiedCell.column, j = OccupiedCell.row, OccupiedInRow = 0; i < boardSize && j >= 0; i++, j--)
+            {
+                 if (OccupiedCell.isOccupied == true)
+                 {
+                    if (Cellsgrid[i,j].occupiedByX == true)
+                     {
+                         OccupiedInRow += 1;
+                     }
+                     if (Cellsgrid[i, j].occupiedByO == true)
+                     {
+                         OccupiedInRow += 10;
+                     }
+                 }
+
+                 if (OccupiedInRow == 3)
+                 { 
+                     VictoryX = true;
+                 return;
+                 }
+                 if (OccupiedInRow == 30)
+                 {
+                     VictoryO = true;
+                     return;
+                 }
+             }
+            
+             //check north-west
+             for (int i = OccupiedCell.column, j = OccupiedCell.row, OccupiedInRow = 0; i >= 0 && j >= 0; i--, j--)
+             {
+                 if (OccupiedCell.isOccupied == true)
+                 {
+                     if (Cellsgrid[i, j].occupiedByX == true)
+                     {
+                         OccupiedInRow += 1;
+                     }
+                     if (Cellsgrid[i, j].occupiedByO == true)
+                     {
+                         OccupiedInRow += 10;
+                     }
+                 }
+
+                 if (OccupiedInRow == 3)
+                 {
+                     VictoryX = true;
+                     return;
+                 }
+                 if (OccupiedInRow == 30)
+                 {
+                     VictoryO = true;
+                     return;
+                 }
+             }
             
             //check south-east
-            for (int i = OccupiedCell.column, j = OccupiedCell.row; i < boardSize && j < boardSize; i++, j++)
-            {
-              
-            }
-            
+            for (int i = OccupiedCell.column, j = OccupiedCell.row, OccupiedInRow = 0; i < boardSize && j < boardSize; i++, j++)
+             {
+                 if (OccupiedCell.isOccupied == true)
+                 {
+                     if (Cellsgrid[j, i].occupiedByX == true)
+                     {
+                         OccupiedInRow += 1;
+                     }
+                     if (Cellsgrid[j, i].occupiedByO == true)
+                     {
+                         OccupiedInRow += 10;
+                     }
+                 }
+
+                 if (OccupiedInRow == 3)
+                 {
+                     VictoryX = true;
+                     return;
+                 }
+                 if (OccupiedInRow == 30)
+                 {
+                     VictoryO = true;
+                     return;
+                 }
+             }
+
+
             //check south-west
-            for (int i = OccupiedCell.column, j = OccupiedCell.row; i >= 0 && j < boardSize; i--, j++)
+            for (int i = OccupiedCell.column, j = OccupiedCell.row, OccupiedInRow = 0; i >= 0 && j < boardSize; i--, j++)
             {
-               
-            }
+                if (OccupiedCell.isOccupied == true)
+                {
+                    if (Cellsgrid[j, i].occupiedByX == true)
+                    {
+                        OccupiedInRow += 1;
+                    }
+                    if (Cellsgrid[j, i].occupiedByO == true)
+                    {
+                        OccupiedInRow += 10;
+                    }
+                }
+
+                if (OccupiedInRow == 3)
+                {
+                    VictoryX = true;
+                    return;
+                }
+                if (OccupiedInRow == 30)
+                {
+                    VictoryO = true;
+                    return;
+                }
+            }  
         }
     }
 }

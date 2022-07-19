@@ -16,10 +16,10 @@ namespace TicTacToe
         {
             InitializeComponent();
             SetButtons();
-
         }
         static Board boardPlaySpace = new Board(3);
         public Button[,] btnGrid = new Button[boardPlaySpace.boardSize, boardPlaySpace.boardSize];
+        public static bool Xplaying = true;
        
         public void SetButtons()
         {            
@@ -40,23 +40,18 @@ namespace TicTacToe
 
                     btnGrid[i, j].Location = new Point(i * buttonSize, j * buttonSize);
 
-                    btnGrid[i, j].Text = (i + "/" + j);
-
                     btnGrid[i, j].Click += buttonCell_Click;
+
                     btnGrid[i, j].Tag = new Point(i, j);
-                    
 
-                    
+                    btnGrid[i, j].Font = new Font(btnGrid[i, j].Font.FontFamily, 40);
                 }
-
-
             }
-
         }
         public void buttonCell_Click(object sender, EventArgs e)
         {
             Button CommonButton = (Button)sender;
-            
+
             //set the same button reference to cell reference
             Point Location = (Point)CommonButton.Tag;
 
@@ -64,25 +59,45 @@ namespace TicTacToe
             int y = Location.Y;
 
             Cell CurrentCell = boardPlaySpace.Cellsgrid[x, y];
+            CurrentCell.isOccupied = true;
 
-            boardPlaySpace.CheckOffSet(CurrentCell);
-
-           
-            for(int i = 0; i < boardPlaySpace.boardSize; i++)
+            if (Xplaying == true)
             {
-                for(int j = 0; j < boardPlaySpace.boardSize; j++)
+                CommonButton.Text = "X";
+
+                CurrentCell.occupiedByX = true;
+            }
+            if (Xplaying == false)
+            {
+                CommonButton.Text = "O";
+
+                CurrentCell.occupiedByO = true;
+            }
+
+            for (int i = 0; i < boardPlaySpace.boardSize; i++)
+            {
+                for (int j = 0; j < boardPlaySpace.boardSize; j++)
                 {
-                    if (boardPlaySpace.Cellsgrid[j,i].isOccupied == true)
-                    {
-                        
-                    }
-
-
+                    boardPlaySpace.CheckOffSet(boardPlaySpace.Cellsgrid[i, j]);
                 }
             }
-  
+
+            //Victory display
+            if (boardPlaySpace.VictoryX == true)
+            {
+                textBoxVictoryBox.Text = "X won";
+                return;
+            }
+            if (boardPlaySpace.VictoryO == true)
+            {
+                textBoxVictoryBox.Text = "O won";
+                return;
+            }
+            else { textBoxVictoryBox.Text = "no Victory"; }
+
+            CommonButton.Enabled = false;
+
+            Xplaying = !Xplaying;
         }
-
-
     }
 }
