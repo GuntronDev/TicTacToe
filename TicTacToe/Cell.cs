@@ -10,7 +10,10 @@ namespace TicTacToe
     {
         public int column { get; set; }
         public int row { get; set; }
-        public bool isOccupied { get; set; } = false;   
+        public bool isOccupied { get; set; } = false;
+        public bool occupiedByX { get; set; } = false;
+        public bool occupiedByO { get; set; } = false;
+
      
 
         public Cell(int column, int row)
