@@ -40,7 +40,7 @@
             // panelTicTacToe
             // 
             this.panelTicTacToe.Location = new System.Drawing.Point(16, 226);
-            this.panelTicTacToe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTicTacToe.Margin = new System.Windows.Forms.Padding(4);
             this.panelTicTacToe.Name = "panelTicTacToe";
             this.panelTicTacToe.Size = new System.Drawing.Size(600, 554);
             this.panelTicTacToe.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             this.textBoxPlayersName.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxPlayersName.Location = new System.Drawing.Point(16, 15);
-            this.textBoxPlayersName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPlayersName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlayersName.Name = "textBoxPlayersName";
             this.textBoxPlayersName.ReadOnly = true;
             this.textBoxPlayersName.Size = new System.Drawing.Size(153, 60);
@@ -60,7 +60,7 @@
             // 
             this.textBoxPlayersScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxPlayersScore.Location = new System.Drawing.Point(179, 15);
-            this.textBoxPlayersScore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPlayersScore.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlayersScore.Name = "textBoxPlayersScore";
             this.textBoxPlayersScore.ReadOnly = true;
             this.textBoxPlayersScore.Size = new System.Drawing.Size(52, 60);
@@ -71,7 +71,7 @@
             // 
             this.textBoxAiName.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxAiName.Location = new System.Drawing.Point(499, 15);
-            this.textBoxAiName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAiName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAiName.Name = "textBoxAiName";
             this.textBoxAiName.ReadOnly = true;
             this.textBoxAiName.Size = new System.Drawing.Size(63, 60);
@@ -82,7 +82,7 @@
             // 
             this.textBoxAiScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxAiScore.Location = new System.Drawing.Point(571, 15);
-            this.textBoxAiScore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAiScore.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAiScore.Name = "textBoxAiScore";
             this.textBoxAiScore.ReadOnly = true;
             this.textBoxAiScore.Size = new System.Drawing.Size(44, 60);
@@ -93,12 +93,13 @@
             // 
             this.buttonPlayAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonPlayAgain.Location = new System.Drawing.Point(16, 123);
-            this.buttonPlayAgain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonPlayAgain.Margin = new System.Windows.Forms.Padding(4);
             this.buttonPlayAgain.Name = "buttonPlayAgain";
             this.buttonPlayAgain.Size = new System.Drawing.Size(600, 79);
             this.buttonPlayAgain.TabIndex = 5;
-            this.buttonPlayAgain.Text = "Player Again!!!";
+            this.buttonPlayAgain.Text = "Play Again!!!";
             this.buttonPlayAgain.UseVisualStyleBackColor = true;
+            this.buttonPlayAgain.Click += new System.EventHandler(this.buttonPlayAgain_Click);
             // 
             // textBoxVictoryBox
             // 
@@ -121,7 +122,7 @@
             this.Controls.Add(this.textBoxPlayersScore);
             this.Controls.Add(this.textBoxPlayersName);
             this.Controls.Add(this.panelTicTacToe);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
