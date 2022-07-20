@@ -99,5 +99,25 @@ namespace TicTacToe
 
             Xplaying = !Xplaying;
         }
+
+        private void buttonPlayAgain_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < boardPlaySpace.boardSize; i++)
+            {
+                for(int j = 0; j < boardPlaySpace.boardSize; j++)
+                {
+                    btnGrid[i,j].Enabled = true;
+                    btnGrid[i, j].Text = null;
+                    boardPlaySpace.VictoryX = false;
+                    boardPlaySpace.VictoryO = false;
+                    boardPlaySpace.Cellsgrid[i,j].isOccupied = false;
+                    boardPlaySpace.Cellsgrid[i, j].occupiedByX = false;
+                    boardPlaySpace.Cellsgrid[i, j].occupiedByO = false;
+                    Xplaying = true;
+                    textBoxVictoryBox.Text = "No Victory";
+                }
+            }
+
+        }
     }
 }
