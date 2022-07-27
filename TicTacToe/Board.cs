@@ -30,13 +30,15 @@ namespace TicTacToe
         }
         //checking all offsets to see if anyone won
         public void CheckOffSet(Cell OccupiedCell)
-        {  
+        {
+            
             //check north          
             for (int i = OccupiedCell.row, OccupiedInRow = 0; i >= 0; i--)
             {              
                     if (Cellsgrid[OccupiedCell.column,i].isOccupied == true)
                     {
-                        if (Cellsgrid[OccupiedCell.column, i].occupiedByX == true)
+                    Console.WriteLine("Working");
+                    if (Cellsgrid[OccupiedCell.column, i].occupiedByX == true)
                         {
                             OccupiedInRow += 1;
                         }

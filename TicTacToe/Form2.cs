@@ -67,14 +67,13 @@ namespace TicTacToe
                 Cell AiCell = PlaceAiMoves();
                 PlaceMove(AiCell);
                 btnGrid[AiCell.column, AiCell.row].Enabled = false;
-
             }
             if(AiPlaying == false)
             {
                 PlaceMove(CurrentCell);
                 CommonButton.Enabled = false;
-                
             }
+            
             CheckForWinning();
 
             Xplaying = !Xplaying;
@@ -125,7 +124,7 @@ namespace TicTacToe
         }
         private void CheckForWinning()
         {
-
+            
             for (int i = 0; i < boardPlaySpace.boardSize; i++)
             {
                 for (int j = 0; j < boardPlaySpace.boardSize; j++)
@@ -141,15 +140,15 @@ namespace TicTacToe
                 return;
             }
             if (boardPlaySpace.VictoryO == true)
-            {
+            { 
                 textBoxVictoryBox.Text = "O won";
                 return;
             }
-            else { textBoxVictoryBox.Text = "no Victory"; }
 
         }
         private void PlaceMove(Cell CurrentCell)
         {
+            CurrentCell.isOccupied = true;
             if (Xplaying == true)
             {
                 btnGrid[CurrentCell.column,CurrentCell.row].Text = "X";
